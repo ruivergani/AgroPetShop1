@@ -1,0 +1,22 @@
+use wda_crud;
+CREATE TABLE `sales` (
+  `id` int(11) NOT NULL,
+  `cliente` varchar(255) NOT NULL,
+  `cpf_cnpj` varchar(14) NOT NULL,
+  `produto` varchar(255) NOT NULL,
+  `vendedor` varchar(150) NOT NULL,
+  `valor_venda` double NOT NULL,
+  `forma_pagamento` varchar(50) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+ALTER TABLE `sales`
+ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `sales`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `sales` ADD CONSTRAINT (`cliente`) FOREIGN KEY (`cliente `)REFERENCES customers(`id`);
+ALTER TABLE `sales` ADD FOREIGN KEY (`cpf_cnpj`) REFERENCES customers(`id`);
+ALTER TABLE `sales` ADD FOREIGN KEY (`produto`) REFERENCES products(`id`);
+ALTER TABLE `sales` ADD FOREIGN KEY (`vendedor`) REFERENCES users(`id`);
